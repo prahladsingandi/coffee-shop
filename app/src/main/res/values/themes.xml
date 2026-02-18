@@ -3,7 +3,27 @@
     <style name="Base.Theme.CoffeeShop" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
         <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="android:windowDisablePreview">true</item>
+        <item name="fontFamily">@font/baloo_tamma2_regular</item>
     </style>
 
     <style name="Theme.CoffeeShop" parent="Base.Theme.CoffeeShop" />
+
+    <style name="CircleImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RoundCornerImage">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">15dp</item>
+    </style>
+
+    <style name="MyModernChip" parent="Widget.Material3.Chip.Filter">
+        <item name="chipBackgroundColor">@color/blue_700</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipStrokeColor">@color/black_10</item>
+    </style>
+
+
 </resources>
