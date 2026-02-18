@@ -90,4 +90,7 @@
     <color name="light_cream">#FFFBF2</color>
     <color name="cream_background">#F5F3EF</color>
 
+    <color name="coffee_primary">#4B2E2B</color>
+    <color name="coffee_caramel">#C89B3C</color>
+
 </resources>

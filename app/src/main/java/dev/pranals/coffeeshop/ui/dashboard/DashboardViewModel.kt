@@ -11,15 +11,9 @@ class DashboardViewModel : ViewModel() {
 
     private val repository = DashboardRepository()
 
-    // Cache the LiveData to avoid creating multiple listeners in the repository
-    private val _banners = repository.loadBanner()
-    val banners: LiveData<MutableList<BannerModel>> = _banners
-//    val categories: LiveData<MutableList<CategoryModel>> = repository.loadCategory()
-
-
     // Keep this for compatibility if needed, but preferred to use the property above
     fun loadBanner(): LiveData<MutableList<BannerModel>> {
-        return _banners
+        return repository.loadBanner()
     }
 
     fun loadCategory(): LiveData<MutableList<CategoryModel>> {

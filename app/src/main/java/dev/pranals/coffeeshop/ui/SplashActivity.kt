@@ -7,7 +7,6 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import dev.pranals.coffeeshop.databinding.ActivitySplashBinding
 import dev.pranals.coffeeshop.ui.dashboard.DashboardActivity
-
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding

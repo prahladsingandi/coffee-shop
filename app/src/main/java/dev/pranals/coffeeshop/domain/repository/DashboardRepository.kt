@@ -65,7 +65,7 @@ class DashboardRepository {
                     Log.d("DashboardRepository", "Loaded item: $item")
                     item?.let { list.add(it) }
                 }
-                Log.d("DashboardRepository", "Total banners loaded: ${list.size}")
+                Log.d("DashboardRepository", "Total Categories loaded: ${list.size}")
                 listData.postValue(list)
             }
 
@@ -89,7 +89,7 @@ class DashboardRepository {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.d(
                     "DashboardRepository",
-                    "onDataChange: Snapshot exists? PopularItemModel >> ${snapshot.exists()} | Children count: ${snapshot.childrenCount}"
+                    "onDataChange: PopularItemModel Snapshot exists? ${snapshot.exists()} | Children >> $snapshot"
                 )
                 val list = mutableListOf<PopularItemModel>()
                 for (childSnapshot in snapshot.children) {
@@ -97,7 +97,7 @@ class DashboardRepository {
                     Log.d("DashboardRepository", "Loaded item: $item")
                     item?.let { list.add(it) }
                 }
-                Log.d("DashboardRepository", "Total banners loaded: ${list.size}")
+                Log.d("DashboardRepository", "Total popularItems loaded: ${list.size}")
                 listData.postValue(list)
             }
 
