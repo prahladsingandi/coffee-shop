@@ -12,7 +12,7 @@
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@id/coordinatorLayout"
+        app:layout_constraintBottom_toTopOf="@id/bottomNav"
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -228,7 +228,9 @@
                     android:id="@+id/rvPopularItems"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    android:overScrollMode="never"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
 
                 <ProgressBar
                     android:id="@+id/progressBarPopular"
@@ -246,132 +248,148 @@
 
     </androidx.core.widget.NestedScrollView>
 
-    <androidx.coordinatorlayout.widget.CoordinatorLayout
-        android:id="@+id/coordinatorLayout"
-        android:layout_width="match_parent"
-        android:layout_height="75dp"
-        app:layout_constraintBottom_toBottomOf="parent">
+    <!-- <androidx.coordinatorlayout.widget.CoordinatorLayout
+         android:id="@+id/coordinatorLayout"
+         android:layout_width="match_parent"
+         android:layout_height="75dp"
+         android:visibility="gone"
+         app:layout_constraintBottom_toBottomOf="parent">
 
-        <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
+         <com.google.android.material.bottomnavigation.BottomNavigationView
+             android:layout_width="match_parent"
+             android:layout_height="match_parent"
+             android:background="@color/white">
 
-            <androidx.appcompat.widget.LinearLayoutCompat
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
+             <androidx.appcompat.widget.LinearLayoutCompat
+                 android:layout_width="match_parent"
+                 android:layout_height="match_parent"
+                 android:orientation="horizontal">
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:gravity="center"
+                     android:orientation="vertical">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/btn_1" />
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:layout_gravity="center"
+                         app:srcCompat="@drawable/ic_explore" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="explore"
-                        android:textAlignment="center" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                     <com.google.android.material.textview.MaterialTextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="2dp"
+                         android:text="explore"
+                         android:textAlignment="center" />
+                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:gravity="center"
+                     android:orientation="vertical">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/btn_2" />
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:layout_gravity="center"
+                         app:srcCompat="@drawable/ic_cart" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="cart"
-                        android:textAlignment="center" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                     <com.google.android.material.textview.MaterialTextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="2dp"
+                         android:text="cart"
+                         android:textAlignment="center" />
+                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:gravity="center"
+                     android:orientation="vertical">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/btn_3" />
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:layout_gravity="center"
+                         app:srcCompat="@drawable/ic_wishlist" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="wishlist"
-                        android:textAlignment="center" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                     <com.google.android.material.textview.MaterialTextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="2dp"
+                         android:text="wishlist"
+                         android:textAlignment="center" />
+                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:gravity="center"
+                     android:orientation="vertical">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/btn_4" />
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:layout_gravity="center"
+                         app:srcCompat="@drawable/ic_my_orders" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="my orders"
-                        android:textAlignment="center" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                     <com.google.android.material.textview.MaterialTextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="2dp"
+                         android:text="my orders"
+                         android:textAlignment="center" />
+                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-                <androidx.appcompat.widget.LinearLayoutCompat
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
+                 <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="wrap_content"
+                     android:layout_height="match_parent"
+                     android:layout_weight="1"
+                     android:gravity="center"
+                     android:orientation="vertical">
 
-                    <com.google.android.material.imageview.ShapeableImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        app:srcCompat="@drawable/btn_5" />
+                     <com.google.android.material.imageview.ShapeableImageView
+                         android:layout_width="30dp"
+                         android:layout_height="30dp"
+                         android:layout_gravity="center"
+                         app:srcCompat="@drawable/ic_profile" />
 
-                    <com.google.android.material.textview.MaterialTextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="2dp"
-                        android:text="profile"
-                        android:textAlignment="center" />
-                </androidx.appcompat.widget.LinearLayoutCompat>
+                     <com.google.android.material.textview.MaterialTextView
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_marginTop="2dp"
+                         android:text="profile"
+                         android:textAlignment="center" />
+                 </androidx.appcompat.widget.LinearLayoutCompat>
 
-            </androidx.appcompat.widget.LinearLayoutCompat>
+             </androidx.appcompat.widget.LinearLayoutCompat>
 
+         </com.google.android.material.bottomnavigation.BottomNavigationView>
 
-        </com.google.android.material.bottomnavigation.BottomNavigationView>
+     </androidx.coordinatorlayout.widget.CoordinatorLayout>-->
 
-    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottomNav"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-10dp"
+        android:background="@drawable/white_full_corner_bg"
+        app:itemIconTint="@color/bottom_nav_color_selector"
+        app:itemTextColor="@color/bottom_nav_color_selector"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:itemActiveIndicatorStyle="@style/BottomNavIndicator"
+        app:itemTextAppearanceInactive="@style/BottomNavTextAppearance"
+        app:itemTextAppearanceActive="@style/BottomNavTextAppearance.Active"
+        app:labelFontScalingEnabled="true"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/menu_bottom" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

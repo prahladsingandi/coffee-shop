@@ -25,5 +25,27 @@
         <item name="chipStrokeColor">@color/black_10</item>
     </style>
 
+    <style name="BottomNavTextAppearance" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="BottomNavTextAppearance.Active" parent="TextAppearance.Material3.BodySmall">
+        <item name="android:textStyle">bold</item>
+        <item name="android:selectedWeekBackgroundColor">@color/black_50</item>
+    </style>
+
+    <style name="BottomNavIndicator">
+        <item name="android:color">@color/venilla_cream</item>  <!-- Selected background color -->
+        <item name="android:width">50dp</item>
+        <item name="android:height">40dp</item>
+        <item name="shapeAppearance">@style/IndicatorShape</item>
+
+    </style>
+
+    <style name="IndicatorShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+
+    </style>
 
 </resources>

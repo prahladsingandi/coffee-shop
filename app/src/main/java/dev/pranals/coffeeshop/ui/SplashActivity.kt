@@ -7,6 +7,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import dev.pranals.coffeeshop.databinding.ActivitySplashBinding
 import dev.pranals.coffeeshop.ui.dashboard.DashboardActivity
+import dev.pranals.coffeeshop.ui.itemdetails.DetailsActivity
+
 @SuppressLint("CustomSplashScreen")
 class SplashActivity : AppCompatActivity() {
     private lateinit var binding: ActivitySplashBinding
@@ -17,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
         binding.btnStart.setOnClickListener {
-            startActivity(Intent(this, DashboardActivity::class.java))
+            startActivity(Intent(this, DetailsActivity::class.java))
         }
 
     }

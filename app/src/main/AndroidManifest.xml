@@ -13,7 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeShop">
         <activity
-            android:name=".ui.ItemListActivity"
+            android:name=".ui.itemdetails.DetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.itemlist.ItemListActivity"
             android:exported="false" />
         <activity
             android:name=".ui.SplashActivity"

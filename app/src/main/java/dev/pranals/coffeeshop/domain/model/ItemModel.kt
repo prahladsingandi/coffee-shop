@@ -1,5 +1,7 @@
 package dev.pranals.coffeeshop.domain.model
 
+import java.io.Serializable
+
 data class ItemModel(
     val categoryId: String = "",
     val description: String = "",
@@ -8,5 +10,4 @@ data class ItemModel(
     val price: Double = 0.0,
     val rating: Double = 0.0,
     val title: String = "",
-
-)
+): Serializable

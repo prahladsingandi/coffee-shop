@@ -4,14 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="250dp"
-    android:layout_marginHorizontal="10dp"
+    android:layout_marginHorizontal="4dp"
     android:layout_marginTop="5dp">
 
     <View
         android:id="@+id/view"
         android:layout_width="match_parent"
         android:layout_height="180dp"
-        android:background="@drawable/item_round_corner_bg"
+        android:background="@drawable/white_full_corner_bg"
         app:layout_constraintBottom_toBottomOf="parent" />
 
     <com.google.android.material.imageview.ShapeableImageView
@@ -32,7 +32,7 @@
         android:layout_marginTop="5dp"
         android:text="title"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/coffee_primary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/ivItem"
@@ -45,9 +45,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:text="description"
+        android:lineSpacingExtra="-5dp"
         android:textAlignment="center"
-        android:textColor="@color/white"
-        android:textSize="14sp"
+        android:textColor="@color/coffee_primary"
+        android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="@+id/ivItem"
         app:layout_constraintStart_toStartOf="@+id/ivItem"
         app:layout_constraintTop_toBottomOf="@+id/tvTitle" />
@@ -60,7 +61,7 @@
         android:layout_marginBottom="10dp"
         android:text="$ 10"
         android:textAlignment="center"
-        android:textColor="@color/white"
+        android:textColor="@color/coffee_caramel"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,7 +76,6 @@
         android:layout_marginBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvSubtitle"
         app:layout_goneMarginEnd="10dp"
         app:srcCompat="@drawable/plus" />
 

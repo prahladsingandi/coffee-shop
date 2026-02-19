@@ -24,8 +24,4 @@ class DashboardViewModel : ViewModel() {
         return repository.loadPopularItems()
     }
 
-    fun loadCategoryItems(categoryId: String): LiveData<MutableList<ItemModel>> {
-        return repository.loadCategoryItems(categoryId)
-    }
-
 }

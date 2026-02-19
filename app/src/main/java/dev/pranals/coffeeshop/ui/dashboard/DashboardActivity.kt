@@ -1,11 +1,14 @@
 package dev.pranals.coffeeshop.ui.dashboard
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.bumptech.glide.Glide
@@ -15,6 +18,7 @@ import dev.pranals.coffeeshop.databinding.ActivityDashboardBinding
 import dev.pranals.coffeeshop.domain.model.CategoryModel
 import dev.pranals.coffeeshop.domain.model.ItemModel
 import dev.pranals.coffeeshop.ui.dashboard.adapter.PopularItemAdapter
+import dev.pranals.coffeeshop.ui.itemlist.ItemListActivity
 
 class DashboardActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDashboardBinding
@@ -29,10 +33,27 @@ class DashboardActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
 
-//        initBanner()
-//        initCategory()
-        initPopularItems()
+        binding.chipGroupCategory.setOnCheckedStateChangeListener { group, checkedIds ->
+            if (!checkedIds.isEmpty()) {
+                val chip = group.findViewById<Chip>(checkedIds[0])
+                val index = group.indexOfChild(chip)
+                Log.w("TAG", "onChipSelected: id >>  ${chip.id} and index >> $index")
+                startActivity(
+                    Intent(this, ItemListActivity::class.java)
+                        .putExtra("title", chip.text)
+                        .putExtra("id", index)
+                )
+            }
+        }
 
+//        initBanner()
+        initCategory()
+//        initPopularItems()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.chipGroupCategory.clearCheck()
     }
 
     private fun initCategory() {
