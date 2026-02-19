@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="dev.pranals.coffeeshop"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    package="dev.pranals.coffeeshop">
 
     <application
         android:allowBackup="true"
@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeShop">
         <activity
+            android:name=".ui.ItemListActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.SplashActivity"
             android:exported="true">
             <intent-filter>
@@ -21,7 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.dashboard.DashboardActivity"/>
+        <activity android:name=".ui.dashboard.DashboardActivity" />
     </application>
 
 </manifest>

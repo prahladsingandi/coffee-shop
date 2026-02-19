@@ -1,6 +1,7 @@
 package dev.pranals.coffeeshop.domain.model
 
-data class PopularItemModel(
+data class ItemModel(
+    val categoryId: String = "",
     val description: String = "",
     val extra: String = "",
     val picUrl: List<String> = emptyList(),

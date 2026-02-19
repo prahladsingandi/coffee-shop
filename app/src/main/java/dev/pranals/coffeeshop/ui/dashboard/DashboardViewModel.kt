@@ -4,7 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import dev.pranals.coffeeshop.domain.model.BannerModel
 import dev.pranals.coffeeshop.domain.model.CategoryModel
-import dev.pranals.coffeeshop.domain.model.PopularItemModel
+import dev.pranals.coffeeshop.domain.model.ItemModel
 import dev.pranals.coffeeshop.domain.repository.DashboardRepository
 
 class DashboardViewModel : ViewModel() {
@@ -20,8 +20,12 @@ class DashboardViewModel : ViewModel() {
         return repository.loadCategory()
     }
 
-    fun loadPopularItems(): LiveData<MutableList<PopularItemModel>> {
+    fun loadPopularItems(): LiveData<MutableList<ItemModel>> {
         return repository.loadPopularItems()
+    }
+
+    fun loadCategoryItems(categoryId: String): LiveData<MutableList<ItemModel>> {
+        return repository.loadCategoryItems(categoryId)
     }
 
 }

@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.pranals.coffeeshop.databinding.ItemPopularBinding
-import dev.pranals.coffeeshop.domain.model.PopularItemModel
+import dev.pranals.coffeeshop.domain.model.ItemModel
 
 class PopularItemAdapter
-    (val list: MutableList<PopularItemModel>, val context: Context) :
+    (val list: MutableList<ItemModel>, val context: Context) :
     RecyclerView.Adapter<PopularItemAdapter.ViewHolder>() {
 
 
@@ -34,7 +34,8 @@ class PopularItemAdapter
         holder.binding.apply {
             Glide.with(context).load(item.picUrl[0]).into(ivItem)
             tvTitle.text = item.title
-            tvDescription.text = item.description
+            tvSubtitle.text = item.extra
+            tvPrice.text = "$ ${item.price}"
         }
     }
 

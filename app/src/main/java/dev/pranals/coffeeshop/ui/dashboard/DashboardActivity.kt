@@ -8,14 +8,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.google.android.material.chip.Chip
 import dev.pranals.coffeeshop.R
 import dev.pranals.coffeeshop.databinding.ActivityDashboardBinding
 import dev.pranals.coffeeshop.domain.model.CategoryModel
-import dev.pranals.coffeeshop.domain.model.PopularItemModel
+import dev.pranals.coffeeshop.domain.model.ItemModel
 import dev.pranals.coffeeshop.ui.dashboard.adapter.PopularItemAdapter
 
 class DashboardActivity : AppCompatActivity() {
@@ -31,8 +29,8 @@ class DashboardActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this)[DashboardViewModel::class.java]
 
-        initBanner()
-        initCategory()
+//        initBanner()
+//        initCategory()
         initPopularItems()
 
     }
@@ -74,7 +72,7 @@ class DashboardActivity : AppCompatActivity() {
         }
     }
 
-    private fun setupPopularItems(popularItems: MutableList<PopularItemModel>) {
+    private fun setupPopularItems(popularItems: MutableList<ItemModel>) {
         binding.rvPopularItems.apply {
             layoutManager = GridLayoutManager(this@DashboardActivity, 2)
             adapter = PopularItemAdapter(popularItems, this@DashboardActivity)

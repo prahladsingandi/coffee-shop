@@ -9,7 +9,7 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import dev.pranals.coffeeshop.domain.model.BannerModel
 import dev.pranals.coffeeshop.domain.model.CategoryModel
-import dev.pranals.coffeeshop.domain.model.PopularItemModel
+import dev.pranals.coffeeshop.domain.model.ItemModel
 
 class DashboardRepository {
     // Explicitly using the URL since it's missing from google-services.json
@@ -79,8 +79,8 @@ class DashboardRepository {
         return listData
     }
 
-    fun loadPopularItems(): LiveData<MutableList<PopularItemModel>> {
-        val listData = MutableLiveData<MutableList<PopularItemModel>>()
+    fun loadPopularItems(): LiveData<MutableList<ItemModel>> {
+        val listData = MutableLiveData<MutableList<ItemModel>>()
         val ref = firebaseDatabase.getReference("Popular")
 
         Log.d("DashboardRepository", "Starting to load PopularItem from: ${ref.toString()}")
@@ -91,9 +91,9 @@ class DashboardRepository {
                     "DashboardRepository",
                     "onDataChange: PopularItemModel Snapshot exists? ${snapshot.exists()} | Children >> $snapshot"
                 )
-                val list = mutableListOf<PopularItemModel>()
+                val list = mutableListOf<ItemModel>()
                 for (childSnapshot in snapshot.children) {
-                    val item = childSnapshot.getValue(PopularItemModel::class.java)
+                    val item = childSnapshot.getValue(ItemModel::class.java)
                     Log.d("DashboardRepository", "Loaded item: $item")
                     item?.let { list.add(it) }
                 }
@@ -110,4 +110,38 @@ class DashboardRepository {
         })
         return listData
     }
+
+    fun loadCategoryItems(categoryId: String): LiveData<MutableList<ItemModel>> {
+        val listData = MutableLiveData<MutableList<ItemModel>>()
+        val ref = firebaseDatabase.getReference("Items")
+        val query = ref.orderByChild("categoryId").equalTo(categoryId)
+
+        Log.d("DashboardRepository", "Starting to load PopularItem from: $query")
+
+        query.addListenerForSingleValueEvent(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                Log.d(
+                    "DashboardRepository",
+                    "onDataChange: PopularItemModel Snapshot exists? ${snapshot.exists()} | Children >> $snapshot"
+                )
+                val list = mutableListOf<ItemModel>()
+                for (childSnapshot in snapshot.children) {
+                    val item = childSnapshot.getValue(ItemModel::class.java)
+                    Log.d("DashboardRepository", "Loaded item: $item")
+                    item?.let { list.add(it) }
+                }
+                Log.d("DashboardRepository", "Total popularItems loaded: ${list.size}")
+                listData.postValue(list)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                Log.e(
+                    "DashboardRepository",
+                    "Firebase Error: ${error.message} | Code: ${error.code} | Details: ${error.details}"
+                )
+            }
+        })
+        return listData
+    }
+
 }
