@@ -1,6 +1,7 @@
 package dev.pranals.coffeeshop.ui.itemlist.adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.pranals.coffeeshop.databinding.ViewHolderItemBinding
 import dev.pranals.coffeeshop.domain.model.ItemModel
+import dev.pranals.coffeeshop.ui.itemdetails.DetailsActivity
 
 class CategoryItemAdapter
     (val list: MutableList<ItemModel>, val context: Context) :
@@ -45,6 +47,14 @@ class CategoryItemAdapter
             tvSubtitle.text = item.extra
             tvPrice.text = "$ ${item.price}"
         }
+
+
+        holder.binding.root.setOnClickListener {
+            context.startActivity(Intent(context, DetailsActivity::class.java).apply {
+                putExtra("item", item)
+            })
+        }
+
     }
 
     override fun getItemCount(): Int {

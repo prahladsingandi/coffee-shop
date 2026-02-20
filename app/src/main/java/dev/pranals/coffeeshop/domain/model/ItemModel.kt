@@ -10,4 +10,8 @@ data class ItemModel(
     val price: Double = 0.0,
     val rating: Double = 0.0,
     val title: String = "",
-): Serializable
+    var numberInCart: Int = 0,
+    var isFavorite: Boolean = false,
+    var totalFee: Int = 0
+
+) : Serializable

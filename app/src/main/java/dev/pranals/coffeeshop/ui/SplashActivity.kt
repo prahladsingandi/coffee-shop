@@ -19,7 +19,7 @@ class SplashActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
         binding.btnStart.setOnClickListener {
-            startActivity(Intent(this, DetailsActivity::class.java))
+            startActivity(Intent(this, DashboardActivity::class.java))
         }
 
     }

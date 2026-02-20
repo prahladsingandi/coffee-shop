@@ -46,9 +46,9 @@ class DashboardActivity : AppCompatActivity() {
             }
         }
 
-//        initBanner()
+        initBanner()
         initCategory()
-//        initPopularItems()
+        initPopularItems()
     }
 
     override fun onResume() {

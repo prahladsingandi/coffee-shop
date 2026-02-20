@@ -11,7 +11,8 @@
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -63,7 +64,7 @@
                 android:id="@+id/tvTitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
+                android:padding="15dp"
                 android:text="title"
                 android:textAlignment="center"
                 android:textSize="22sp"
@@ -92,36 +93,38 @@
                 app:layout_constraintTop_toBottomOf="@id/tvSize">
 
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/smallBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="medium"
-                    android:textStyle="bold" />
-
-                <View
-                    android:layout_width="1dp"
                     android:layout_height="match_parent"
-                    android:background="@color/grey_400" />
-
-                <com.google.android.material.textview.MaterialTextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/brown_round_corner_bg"
+                    android:focusable="true"
+                    android:clickable="true"
                     android:gravity="center"
                     android:text="small"
                     android:textStyle="bold" />
 
-                <View
-                    android:layout_width="1dp"
-                    android:layout_height="match_parent"
-                    android:background="@color/grey_400" />
-
                 <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/mediumBtn"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:focusable="true"
+                    android:clickable="true"
+                    android:text="medium"
+                    android:textStyle="bold" />
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/largeBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    android:focusable="true"
+                    android:clickable="true"
                     android:text="large"
                     android:textStyle="bold" />
 
@@ -157,6 +160,7 @@
                     android:clickable="true"
                     android:focusable="true"
                     android:gravity="center"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:paddingStart="15dp"
                     android:paddingTop="6dp"
                     android:text="-"
@@ -182,6 +186,7 @@
                     android:layout_height="match_parent"
                     android:clickable="true"
                     android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless"
                     android:gravity="center"
                     android:paddingTop="6dp"
                     android:paddingEnd="15dp"
@@ -262,7 +267,7 @@
                     android:text="Add to cart" />
 
                 <com.google.android.material.textview.MaterialTextView
-                    id="@+id/tvPrice"
+                    android:id="@+id/tvPrice"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:text="100"
@@ -270,8 +275,8 @@
                     android:textSize="24sp"
                     android:layout_weight="1"
                     android:layout_marginEnd="10dp"
-                    android:gravity="center"
-                    android:textAlignment="viewEnd"/>
+                    android:padding="2dp"
+                    android:gravity="end" />
 
                 <com.google.android.material.textview.MaterialTextView
                     android:layout_width="wrap_content"
@@ -279,8 +284,7 @@
                     android:text="Rs."
                     android:textStyle="bold"
                     android:textSize="20sp"
-                    android:gravity="center"
-                    android:textAlignment="viewEnd"/>
+                    android:gravity="center" />
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
