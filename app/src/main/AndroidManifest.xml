@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.CoffeeShop">
         <activity
+            android:name=".ui.cart.CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".ui.itemdetails.DetailsActivity"
             android:exported="false" />
         <activity

@@ -1,14 +1,12 @@
 package dev.pranals.coffeeshop.ui.dashboard.adapter
 
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import dev.pranals.coffeeshop.databinding.ViewHolderPopularItemBinding
 import dev.pranals.coffeeshop.domain.model.ItemModel
-import dev.pranals.coffeeshop.ui.itemdetails.DetailsActivity
 import java.util.zip.Inflater
 
 class PopularItemAdapter
@@ -38,13 +36,6 @@ class PopularItemAdapter
             tvTitle.text = item.title
             tvSubtitle.text = item.extra
             tvPrice.text = "$ ${item.price}"
-
-            root.setOnClickListener {
-                context.startActivity(Intent(context, DetailsActivity::class.java).apply {
-                    putExtra("item", item)
-                })
-            }
-
         }
     }
 
